@@ -144,6 +144,10 @@ menuText	20,20,24
 pen	0.5                line width in millimetres
 ```
 
+(The words after each value are notes for this page; in the real file comments go on their own
+`#` lines. `ok` and `pen` are new keys: Opus checks that `lib_theme` passes a non-colour value
+through `Theme.Get` before relying on it.)
+
 | Rule of the look | |
 |---|---|
 | Line width | `pen` mm on the screen: `max(1, round(pen * dpi / 25.4))` pixels. 0.5 mm is 2 px at 100% and 125% scaling, 3 px at 150% |
@@ -199,7 +203,7 @@ The owner runs every Windows build by hand, so the plan needs **two rebuilds, no
 
 | Step | What | Who | Done when |
 |---|---|---|---|
-| 0 | fetch `raygui.h` for raylib 6.2 into the bridge; write the feed and three calls (`GuiFeedMouse`, `GuiButton`, `GuiLabel`, `GuiSetStyle`) | Opus | `python3 gen_xt3d.py` lists them; `gcc -std=c99 -fsyntax-only xt3d_shim.c` is clean in WSL |
+| 0 | fetch `raygui.h` for raylib 6.2 into the bridge; write the feed (`GuiFeedMouse`) and three calls (`GuiButton`, `GuiLabel`, `GuiSetStyle`) | Opus | `python3 gen_xt3d.py` lists them; `gcc -std=c99 -fsyntax-only xt3d_shim.c` is clean in WSL |
 | 1 | **rebuild 1** (`build.bat`), one bench check: a button drawn into the picture, a fed click answers 1 | owner + Opus | the check passes and the owner sees a button in the bench |
 | 2 | the stub library and the player for `label button toggle line panel`; `rapidograph.txt`; the symbol font | Opus | headless tests pass (section 8) |
 | 3 | the rest of the calls in section 4.1, all at once; **rebuild 2** | Opus + owner | bench checks for each call |
