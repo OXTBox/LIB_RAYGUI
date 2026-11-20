@@ -10,3 +10,7 @@ same names, values and messages. The look is "Rapidograph": a white page, outlin
 | It owns | It leaves to |
 |---|---|
 | the `xt3d_Gui*` calls, the player (`RayGui.*`), how a theme becomes a raygui style | the layout file and widget kinds: LIB_GUI. Colours: LIB_THEME (`rapidograph.txt`). The C build: the xt3d bridge folder |
+
+## Licence
+
+MIT (see `LICENSE`), Copyright (c) 2026 xAction.
